@@ -1,0 +1,9 @@
+.idea/
+*.pyc
+*.DS_Store
+*.lprof
+docs/build
+docs/_static
+docs/_templates
+geoplotlib.egg-info
+pypi.sh
