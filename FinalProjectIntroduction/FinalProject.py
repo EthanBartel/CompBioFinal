@@ -42,7 +42,7 @@ countries = [
 current_date = datetime.datetime.strftime(datetime.date.today(), "%m-%d-%Y")   
 
 #introduction of the game and User
-print ("Welcome to Caroline's and Ethan's Final Project")
+print ("Welcome to CombBiol.Find(A+)'s Final Project")
 user = input (('\n What is your name? ').title())
  # for later on in the game
 #pick a country based from list of countries and populations
@@ -62,3 +62,20 @@ print ('\nNews Bulletin'.ljust(45), current_date)
 print ('-' * 55)
 print ('An unknown disease named', diseasename, 'has struck', startcountry, 'by storm.')
 print ('Doctors and scientists will need to collaborate to find out more information about this disease.')
+
+#Select options for Infection Type
+print ('Select Your Infection Type')
+print ('A: Viruses- fast evolving, more affected by environment, bonus to infectivity')
+print ('B: Bacteria- medium evolving, normally affected by environment, bonus to drug resistance')
+print ('C: Parasites- slow evolving, least affected by environment, low visibilty ')
+
+infect = input ('Selection:')
+
+#Select options for transmittion factors
+print ('Select Your Transmission Factor')
+print ('A: Rodent-rats, mice, squirrels, and other rodents') 
+print ('B: Insect- mosquitos and other blood-sucking insects')
+print ('C: Waterborne-spread through water -->can infect water facilities, requires moisture')
+print ('D: Airborne- allows virus to spread though air')
+
+Transmission = input ('Selection:')
