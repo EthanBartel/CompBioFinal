@@ -2,4 +2,4 @@ This folder contains research on the map plotting we will
 use for data visualization. We will continue the testing
 of different maps but I believe that a heatmap and graph 
 layer will be best for our project.
-(see graph-flights for an example)
+(see graph-flights.py for an example)
