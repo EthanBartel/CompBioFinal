@@ -19,4 +19,5 @@ class Infection
 #airborne- allows virus to spread though air
 
 #It will include their interactions with the environment (mode of transmission, drug interaction, etc.)
+
 #Viruses will be the most virulent, then bacteria, then parasites

@@ -3,79 +3,57 @@
 import datetime
 import random 
 
-countries = [
-   dict(Name = "China", Population = "1,363,560,000"),
-   dict(Name = "India", Population = "1,242,070,000"),
-   dict(Name = "United States", Population = "317,768,000"),
-   dict(Name = "Indonesia", Population = "249,866,000"),
-   dict(Name = "Brazil", Population = "201,032,714"),
-   dict(Name = "Pakistan", Population = "186,015,000"),
-   dict(Name = "Nigeria", Population = "173,615,000"),
-   dict(Name = "Bangladesh", Population = "152,518,015"),
-   dict(Name = "Russia", Population = "143,700,000"),
-   dict(Name = "Japan", Population = "127,120,000"),
-   dict(Name = "Mexico", Population = "119,713,203"),
-   dict(Name = "Philippines", Population = "99,329,000"),
-   dict(Name = "Vietnam", Population = "89,708,900"),
-   dict(Name = "Egypt", Population = "86,188,600"),
-   dict(Name = "Germany", Population = "80,716,000"),
-   dict(Name = "Iran", Population = "77,315,000"),
-   dict(Name = "Turkey", Population = "76,667,864"),
-   dict(Name = "Thailand", Population = "65,926,261"),
-   dict(Name = "France", Population = "65,844,000"),
-   dict(Name = "United Kingdom", Population = "63,705,000"),
-   dict(Name = "Italy", Population = "59,996,777"),
-   dict(Name = "South Africa", Population = "52,981,991"),
-   dict(Name = "South Korea", Population = "50,219,669"),
-   dict(Name = "Colombia", Population = "47,522,000"),
-   dict(Name = "Spain", Population = "46,609,700"),
-   dict(Name = "Ukraine", Population = "45,410,071"),
-   dict(Name = "Kenya", Population = "44,354,000"),
-   dict(Name = "Argentina", Population = "40,117,096"),
-   dict(Name = "Poland", Population = "38,502,396"),
-   dict(Name = "Sudan", Population = "37,964,000"),
-   dict(Name = "Uganda", Population = "35,357,000"),
-   dict(Name = "Canada", Population = "35,344,962"),
-   dict(Name = "Iraq", Population = "34,035,000"),
+#directory of continent selection options
+continents = [
+   dict(Name = "Asia", Population = "4,463,560,000"),
+   dict(Name = "Africa", Population = "1,216,070,000"),
+   dict(Name = "North America", Population = "579,768,000"),
+   dict(Name = "South America", Population = "422,866,000"),
+   dict(Name = "Australia", Population = "26,632,714"),
+   dict(Name = "Europe", Population = "741,415,000"),
    ]
 
+#find current date to print on bulletin 
 current_date = datetime.datetime.strftime(datetime.date.today(), "%m-%d-%Y")   
 
 #introduction of the game and User
-print ("Welcome to CombBiol.Find(A+)'s Final Project")
+print ("Welcome to CompBiol.Find(A+)'s Final Project")
 user = input (('\n What is your name? ').title())
  # for later on in the game
 #pick a country based from list of countries and populations
-print ('\nCountries to choose from are\n')
-print ("Country".ljust(15),"Population\n")
-for country in countries:
-    print (country["Name"].ljust(15), country["Population"])
-startcountry = input (('\nWhat country would you like to start in? ').title()) 
+print ('-' * 55)
+print ('\nChoose From Following Continents or Type Random\n')
+print ("Continent".ljust(15),"Population\n")
+for continent in continents:
+    print (continent["Name"].ljust(15), continent["Population"]) #list of cont names for user
+startcontinent = input (('\nWhat continent would you like to start in? ').title()) 
 
-if startcountry == 'Random': # random.sample can be used for more than one country later on
-    startcountry = random.choice(countries)
+if startcontinent == 'Random': # random.sample can be used for more than one country later on
+    startcontinent = random.choice(continents)
 #input disease name 
 diseasename = input (('\nWhat would you like to name your disease? ').title())
 
-#start game... bulletin from with info on disease and start
+#start game... bulletin from user info, disease and start
+print ('-' * 55)
 print ('\nNews Bulletin'.ljust(45), current_date)
 print ('-' * 55)
-print ('An unknown disease named', diseasename, 'has struck', startcountry, 'by storm.')
+print ('An unknown disease named', diseasename, 'has struck', startcontinent, 'by storm.')
 print ('Doctors and scientists will need to collaborate to find out more information about this disease.')
+print ('-' * 55)
 
 #Select options for Infection Type
-print ('Select Your Infection Type')
-print ('A: Viruses- fast evolving, more affected by environment, bonus to infectivity')
-print ('B: Bacteria- medium evolving, normally affected by environment, bonus to drug resistance')
-print ('C: Parasites- slow evolving, least affected by environment, low visibilty ')
+print ('\nSelect Your Infection Type: A, B, or C')
+print ('\nA: VIRUSES- Fast Evolving, More Affected By Environment, Bonus To Infectivity')
+print ('B: BACTERIA- Medium Evolving, Normally Affected By Environment, Bonus To Drug Resistance')
+print ('C: PARASITES- Slow Evolving, Least Affected By Environment, Low Visibilty ')
 
 infect = input ('Selection:')
+print ('-' * 55)
 
 #Select options for transmittion factors
-print ('Select Your Transmission Factor')
-print ('A: Rodent-rats, mice, squirrels, and other rodents') 
-print ('B: Insect- mosquitos and other blood-sucking insects')
-print ('C: Waterborne-spread through water -->can infect water facilities, requires moisture')
-print ('D: Airborne- allows virus to spread though air')
-
+print ('\nSelect Your Transmission Factor: A, B, or C')
+print ('\nA: DIRECT- This allows spread via direct contact')
+print ('B: INDIRECT- This allows spread via indirect contact ex: water & airborne')
+print ('C: VECTORS- This allows spread via carrier ex. rodents & insects')
 Transmission = input ('Selection:')
+print ('-' * 55)
