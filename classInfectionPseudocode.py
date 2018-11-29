@@ -51,12 +51,18 @@ Parasite=infection(kind="Parasite",transmission=[0.1],resistance=[0.3],virulence
 if factor=='A':
     for list in range(1):
         direct(Virus)
+        direct(Bacteria)
+        direct(Parasite)
 if factor=='B':
     for list in range(1):
         indirect(Virus)
+        indirect(Bacteria)
+        indirect(Parasite)
 if factor=='C':
     for list in range(1):
         vectors(Virus)
+        vectors(Bacteria)
+        vectors(Parasite)
 #This will be our base class for different methods of infection
 #It will include with inherit resistance rate
 
