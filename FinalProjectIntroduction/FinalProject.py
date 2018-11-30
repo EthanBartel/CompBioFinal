@@ -77,9 +77,6 @@ class continent:
         return(chan)
     def infect(self):
         self.state=1
-        
-
-
 #Contructors for Continents
 AS=continent(name="Asia",m=0.6,stdev=0.1,pop=4463560000)
 AF=continent(name="Africa",m=0.35,stdev=0.1,pop=1216070000)
@@ -87,8 +84,6 @@ NA=continent(name="North America",m=0.55,stdev=0.1,pop=579768000)
 SA=continent(name="South America",m=0.5,stdev=0.1,pop=422866000)
 AU=continent(name="Australia",m=0.3,stdev=0.1,pop=26632714)
 EU=continent(name="Europe",m=0.45,stdev=0.1,pop=741415000)
-
-
 #find current date to print on bulletin 
 current_date = datetime.datetime.strftime(datetime.date.today(), "%m-%d-%Y")   
 
@@ -189,10 +184,12 @@ if AU.state is 1:
 if EU.state is 1:
 	infect.append("Europe")
 
+print ('-' * 55)
+
 print ("You decimated the populations of these continients:")
 print (infect)
 
-
+print ('-' * 55)
 #It will include their interactions with the environment (mode of transmission, drug interaction, etc.)
 
 #Viruses will be the most virulent, then bacteria, then parasites
