@@ -35,14 +35,14 @@ def direct(self):
         self.add_vir(0.06)
 def indirect(self):
     for list in range(1):
-        Virus.add_vir(0.07)
-        Virus.add_trans(0.08)
-        Virus.add_resist(0.05)
+        self.add_vir(0.07)
+        self.add_trans(0.08)
+        self.add_resist(0.05)
 def vectors(self):
     for list in range(1):
-        Virus.add_vir(0.12)
-        Virus.add_trans(0.08)
-        Virus.add_resist(0.06)
+        self.add_vir(0.12)
+        self.add_trans(0.08)
+        self.add_resist(0.06)
 
 #setting base infections
 Virus=infection(kind="Virus",transmission=[0.3],resistance=[0.2],virulence=[0.3])
