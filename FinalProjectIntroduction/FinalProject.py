@@ -31,18 +31,18 @@ class infection:
 #functions for adding transmission factor choices
 def direct(self):
     for list in range(1):
-        self.add_resist(0.03)
-        self.add_trans(0.14)
+        self.add_resist(0.05)
+        self.add_trans(0.12)
         self.add_vir(0.07)
 def indirect(self):
     for list in range(1):
         self.add_vir(0.08)
         self.add_trans(0.09)
-        self.add_resist(0.07)
+        self.add_resist(0.10)
 def vectors(self):
     for list in range(1):
         self.add_vir(0.12)
-        self.add_trans(0.08)
+        self.add_trans(0.18)
         self.add_resist(0.07)
 
 #setting base infections
@@ -51,7 +51,7 @@ Bacteria=infection(kind="Bacteria",transmission=[0.2],resistance=[0.2],virulence
 Parasite=infection(kind="Parasite",transmission=[0.1],resistance=[0.3],virulence=[0.1])
 
 
-#directory of continent selection options
+#dictionary of continent selection options
 continents = [
    dict(Name = "Asia", Population = "4,463,560,000"),
    dict(Name = "Africa", Population = "1,216,070,000"),
@@ -70,6 +70,8 @@ class continent:
         self.stdev = stdev
         self.pop = pop
         self.state = state #Bool for infection state
+
+        #bootstrapping
     def chance(self):
         data=[]
         for number in range(20):
@@ -79,9 +81,9 @@ class continent:
     def infect(self):
         self.state=1
 #Contructors for Continents
-AS=continent(name="Asia",m=0.4,stdev=0.1,pop=4463560000)
-AF=continent(name="Africa",m=0.65,stdev=0.1,pop=1216070000)
-NA=continent(name="North America",m=0.45,stdev=0.1,pop=579768000)
+AS=continent(name="Asia",m=0.3,stdev=0.1,pop=4463560000)
+AF=continent(name="Africa",m=0.55,stdev=0.1,pop=1216070000)
+NA=continent(name="North America",m=0.4,stdev=0.1,pop=579768000)
 SA=continent(name="South America",m=0.5,stdev=0.1,pop=422866000)
 AU=continent(name="Australia",m=0.6,stdev=0.1,pop=26632714)
 EU=continent(name="Europe",m=0.35,stdev=0.1,pop=741415000)
@@ -124,6 +126,7 @@ print ('B: BACTERIA- Medium Evolving, Normally Affected By Environment, Bonus To
 print ('C: PARASITES- Slow Evolving, Least Affected By Environment, Low Visibilty ')
 
 infect = input('Selection:')
+infect = infect.upper()
 print ('-' * 55)
 
 #Select options for transmittion factors
@@ -132,9 +135,10 @@ print ('\nA: DIRECT- This allows spread via direct contact')
 print ('B: INDIRECT- This allows spread via indirect contact ex: water & airborne')
 print ('C: VECTORS- This allows spread via carrier ex. rodents & insects')
 factor = input('Selection:')
+factor = factor.upper()
 print ('-' * 55)
 
-
+#when bool is 0 not infect when 1 it is infected 
 infected=[]
 death=[]
 if startcontinent=="Asia":
@@ -168,21 +172,14 @@ if factor=='C':
         vectors(Parasite)
 
 
-
-#This will be our base class for different methods of infection
-#It will include with inherit resistance rate
-
-
-#when bool is 0 not infect when 1 it is infected 
-
-
 #Boolean Infection
+#for virus
 if infect=='A':
 	if (NA.chance())<(Virus.transmission[0]):
 		NA.infect()
-		for list in range(1):
-			deathNA=(Virus.virulence[0])*(NA.pop)
-			death.append(deathNA)
+		for list in range(1): #for loop
+			deathNA=(Virus.virulence[0])*(NA.pop) 
+			death.append(deathNA) #add to list of death
 	if (AS.chance())<(Virus.transmission[0]):
 		AS.infect()
 		for list in range(1):
@@ -209,7 +206,7 @@ if infect=='A':
 			deathEU=(Virus.virulence[0]*EU.pop)
 			death.append(deathEU)
 
-if infect=='B':
+if infect=='B': #for bacteria
 	if (NA.chance())<(Bacteria.transmission[0]):
 		NA.infect()
 		for list in range(1):
@@ -240,6 +237,7 @@ if infect=='B':
 		for list in range(1):
 			deathEU=(Bacteria.virulence[0]*EU.pop)
 			death.append(deathEU)
+#for parasites
 if infect=='C':
 	if (NA.chance())<(Parasite.transmission[0]):
 		NA.infect()
@@ -275,27 +273,21 @@ if infect=='C':
 if NA.state is 1:
 	for list in range(1):
 	    infected.append("North America")
-	    # death.extend(deathNA)
 if AS.state is 1:
 	for list in range(1):
 	    infected.append("Asia")
-		# death.extend(deathAS)
 if AF.state is 1:
 	for list in range(1):
 		infected.append("Africa")
-		# death.extend(deathAF)
 if SA.state is 1:
 	for list in range(1):
 		infected.append("South America")
-		# death.extend(deathSA)
 if AU.state is 1:
 	for list in range(1):
 		infected.append("Australia")
-		# death.extend(deathAU)
 if EU.state is 1:
 	for list in range(1):
 		infected.append("Europe")
-		# death.extend(deathEU)
 
 print ('-' * 55)
 death=sum(death)
