@@ -51,7 +51,7 @@ Bacteria=infection(kind="Bacteria",transmission=[0.2],resistance=[0.2],virulence
 Parasite=infection(kind="Parasite",transmission=[0.1],resistance=[0.3],virulence=[0.1])
 
 
-#directory of continent selection options
+#dictionary for continent selection options
 continents = [
    dict(Name = "Asia", Population = "4,463,560,000"),
    dict(Name = "Africa", Population = "1,216,070,000"),
@@ -61,7 +61,7 @@ continents = [
    dict(Name = "Europe", Population = "741,415,000"),
    ]
 
-#Continent Classes
+#Continent Classe
 class continent:
     """Continent Class"""
     def __init__(self,name="",m=0,stdev=0,pop=0,state=0):
@@ -124,6 +124,7 @@ print ('B: BACTERIA- Medium Evolving, Normally Affected By Environment, Bonus To
 print ('C: PARASITES- Slow Evolving, Least Affected By Environment, Low Visibilty ')
 
 infect = input('Selection:')
+infect=infect.upper()
 print ('-' * 55)
 
 #Select options for transmittion factors
@@ -132,6 +133,7 @@ print ('\nA: DIRECT- This allows spread via direct contact')
 print ('B: INDIRECT- This allows spread via indirect contact ex: water & airborne')
 print ('C: VECTORS- This allows spread via carrier ex. rodents & insects')
 factor = input('Selection:')
+factor=factor.upper()
 print ('-' * 55)
 
 
