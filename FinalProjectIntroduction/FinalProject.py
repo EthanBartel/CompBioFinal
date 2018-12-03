@@ -46,9 +46,9 @@ def vectors(self):
         self.add_resist(0.07)
 
 #setting base infections
-Virus=infection(kind="Virus",transmission=[0.3],resistance=[0.2],virulence=[0.3])
-Bacteria=infection(kind="Bacteria",transmission=[0.2],resistance=[0.2],virulence=[0.2])
-Parasite=infection(kind="Parasite",transmission=[0.1],resistance=[0.3],virulence=[0.1])
+Virus=infection(kind="Virus",transmission=[0.35],resistance=[0.2],virulence=[0.3])
+Bacteria=infection(kind="Bacteria",transmission=[0.25],resistance=[0.2],virulence=[0.2])
+Parasite=infection(kind="Parasite",transmission=[0.2],resistance=[0.3],virulence=[0.1])
 
 
 #dictionary of continent selection options
